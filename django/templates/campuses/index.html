@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='index'>
+    <div class='container vertical-center'>
+        <div class='jumbotron index-container'>
+            <h1>This is the Home Page</h1>
+            {% if all %}
+            {% for c in all %}
+            <li><a href={% url 'campus' c.id %}>{{c.name}}</a></li>
+            {% endfor %}
+            {% else %}
+            <p>Lo que sea</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
