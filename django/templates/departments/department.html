@@ -4,9 +4,9 @@
 <div class='container'>
     {% if d %}
     <h1>{{d.name}}</h1>
+    {% if d.image and d.image.url %}
     <img class='img-fluid' src="{{d.image.url}}" alt="{{d.name}}">
-    <h3>Address</h3>
-    <p>{{d.address}}</p>
+    {% endif %}
     <h3>Description</h3>
     <p>{{d.description}}</p>
     <a href={% url 'campus' d.campus_id %}>Back to Campus
@@ -14,7 +14,7 @@
     {% else %}
     <h3>Campus Not Found</h3>
     {% endif %}
-    
+
 </div>
 
 {% endblock %}

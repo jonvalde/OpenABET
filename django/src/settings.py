@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'universities.apps.UniversitiesConfig',
+    'professors.apps.ProfessorsConfig',
     'campuses.apps.CampusesConfig',
     'pages.apps.PagesConfig',
     'departments.apps.DepartmentsConfig',

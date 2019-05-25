@@ -18,13 +18,40 @@
                         <a class="nav-link" href="{% url 'index' %}">Home</a>
                     </li>
                     <li 
-                    {% if '/about/' == request.path %}
+                    {% if '/universities/' == request.path %}
                         class="nav-item active mr-3"
                     {% else %}
                         class="nav-item mr-3"
                     {% endif %}
                     >
-                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                        <a class="nav-link" href="{% url 'universities' %}">Universities</a>
+                    </li>
+                    <li 
+                    {% if '/campuses/' == request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'campuses' %}">Campuses</a>
+                    </li>
+                    <li 
+                    {% if '/departments/' == request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'departments' %}">Departments</a>
+                    </li>
+                    <li 
+                    {% if '/professors/' == request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}
+                    >
+                        <a class="nav-link" href="{% url 'professors' %}">Professors</a>
                     </li>
                 </ul>
         

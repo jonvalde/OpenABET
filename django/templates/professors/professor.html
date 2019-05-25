@@ -1,18 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div class='container'>
-    <h1 class='text-center'>List of All Departments</h1>
-    {% if departments %}
-    {% for p in departments %}
+<div class="">
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
             <div class="col-md-4">
                 {% if p.image and p.image.url %}
-                <a href={% url 'professor' p.id %}>
-                    <img class='iimg-fluid img-thumbnail' src="{{p.image.url}}" alt="{{p.name}}">
-                </a>
+                <img class='iimg-fluid img-thumbnail' src="{{p.image.url}}" alt="{{p.name}}">
                 {% endif %}
             </div>
             <div class="col-md-8">
@@ -26,9 +20,6 @@
             </div>
         </div>
     </div>
-    {% endfor %}
-    {% else %}
-    <p>There Are No Universities In The Database</p>
-    {% endif %}
 </div>
+
 {% endblock %}

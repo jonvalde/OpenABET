@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container'>
+    {% if p %}
+    <h1>{{p.name}}</h1>
+    {% if p.image and p.image.url %}Í
+    <img class='iimg-fluid img-thumbnail' src="{{p.image.url}}" alt="{{p.name}}">
+    {% endif %}
+    <h3>Email</h3>
+    <p>{{p.email}}</p>
+    <a href={% url 'department' p.department_id %}>Back to Department
+    </a>
+    {% else %}
+    <h3>Professor Not Found</h3>
+    {% endif %}
+
+</div>
+
+{% endblock %}
