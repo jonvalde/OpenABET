@@ -7,6 +7,22 @@
         <img class='img-fluid' src="{{u.image.url}}" alt="{{u.name}}">
         <h4>Description</h4>
         <p>{{u.description}}</p>
+        {% if cs %}
+        {% for c in cs %}
+        
+        <div class="container">
+            <h3>{{c.name}}</h3>
+            <a href={% url 'campus' c.id %}>
+                <img class='img-thumbnail' src="{{c.image.url}}" alt="{{c.name}}">
+            </a>
+        </div>
+      
+        <p>{{c.id}}</p>
+        {% endfor %}
+        
+        {% else %}
+        <p>NOPE</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
