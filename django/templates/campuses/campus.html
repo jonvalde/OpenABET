@@ -1,1 +1,20 @@
-<h1>CAMPUS</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container'>
+    {% if c %}
+    <h1>{{c.name}}</h1>
+    <img class='img-fluid' src="{{c.image.url}}" alt="{{c.name}}">
+    <h3>Address</h3>
+    <p>{{c.address}}</p>
+    <h3>Description</h3>
+    <p>{{c.description}}</p>
+    <a href={% url 'university' c.university_id %}>Back to University
+    </a>
+    {% else %}
+    <h3>Campus Not Found</h3>
+    {% endif %}
+    
+</div>
+
+{% endblock %}

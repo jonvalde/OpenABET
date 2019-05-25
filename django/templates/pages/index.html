@@ -1,60 +1,11 @@
 {% extends 'base.html' %}
-
-{% block title %}Sign Up - OPENABET{% endblock %}
-
 {% block content %}
-<!-- Signup card -->
-<form class="login-form form-validate" method="post">
-  {% csrf_token %}
-  {% load static %}
-  <div class="card mb-0">
-    <div class="card-body">
-      <div class="text-center mb-3">
-        <img src="{% static "global_assets/images/openabet.png" %}" alt="OpenAbet" width="100%" height="100%">
-        <h5 class="mb-0">Create a new account</h5>
-        <span class="d-block text-muted">Your credentials</span>
-        {% for error in form.errors %}
-        <span class="d-block text-warning">
-          {% if error == "username" %}
-          This username already exists.
-          {% elif error == "password2" %}
-          Something is wrong with the password.
-          {% else %}
-          Something is wrong with the credentials.
-          {% endif %}
-        </span>
-        {% endfor %}
-      </div>
 
-      <div class="form-group form-group-feedback form-group-feedback-left">
-        <input type="text" class="form-control" name="username" placeholder="Username" required>
-        <div class="form-control-feedback">
-          <i class="icon-user text-muted"></i>
+    <div class='container vertical-center'>
+        <div class='jumbotron index-container'>
+            <h1>This is the About Page</h1>
+            <p>Yeahhhhhh!!!</p>
         </div>
-      </div>
-
-      <div class="form-group form-group-feedback form-group-feedback-left">
-        <input type="password" class="form-control" name="password1" placeholder="Password" required>
-        <div class="form-control-feedback">
-          <i class="icon-lock2 text-muted"></i>
-        </div>
-      </div>
-
-      <div class="form-group form-group-feedback form-group-feedback-left">
-        <input type="password" class="form-control" name="password2" placeholder="Password confirmation" required>
-        <div class="form-control-feedback">
-          <i class="icon-lock2 text-muted"></i>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Sign Up<i class="icon-circle-right2 ml-2"></i></button>
-      </div>
-      <div class="form-gorup text-center">
-        <a href="{% url 'login' %}" class="">Log In</a>
-      </div>
     </div>
-  </div>
-</form>
-<!-- /Signup card -->
+    
 {% endblock %}
