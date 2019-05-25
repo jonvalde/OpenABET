@@ -5,22 +5,21 @@
 <div class='container'>
     <h1 class='text-center'>List of All Departments</h1>
     {% if departments %}
-    {% for p in departments %}
+    {% for d in departments %}
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                {% if p.image and p.image.url %}
-                <a href={% url 'professor' p.id %}>
-                    <img class='iimg-fluid img-thumbnail' src="{{p.image.url}}" alt="{{p.name}}">
+                {% if d.image and d.image.url %}
+                <a href={% url 'department' d.id %}>
+                    <img class='img-fluid img-thumbnail' src="{{d.image.url}}" alt="{{d.name}}">
                 </a>
                 {% endif %}
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{p.name}}</h5>
-                    <p class="card-text">{{p.email}}</p>
-                    <a href={% url 'department' p.department_id %}>
-                        {{p.department.name}}
+                    <h5 class="card-title">{{d.name}}</h5>
+                    <a href={% url 'campus' d.campus_id %}>
+                        {{d.campus.name}}
                     </a>
                 </div>
             </div>
@@ -28,7 +27,7 @@
     </div>
     {% endfor %}
     {% else %}
-    <p>There Are No Universities In The Database</p>
+    <p>There Are No Campuses In The Database</p>
     {% endif %}
 </div>
 {% endblock %}
