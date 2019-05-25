@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container text-center">
+    {% load static %}
+    <img src="{% static "global_assets/images/openabet.png" %}" alt="OpenAbet" width="50%" height="50%">
+    {% if user.is_authenticated %}
+    <h1>Hi {{ user.username }}!</h1>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">Log Out</a></p>
+    {% else %}
+    <h1>You are not logged in.</h1>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Log In</a></p>
+    <p><a class="btn btn-primary btn-lg" href="{% url 'signup' %}" role="button">Sign Up</a></p>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
