@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'tests.apps.TestsConfig',
     'universities.apps.UniversitiesConfig',
     'professors.apps.ProfessorsConfig',
     'campuses.apps.CampusesConfig',

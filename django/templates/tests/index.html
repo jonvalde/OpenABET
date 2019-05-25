@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Made it to Tests</h1>
+{% if tests %}
+{% for t in tests %}
+<div class="container rounded">
+    <h3>{{t.name}}</h3>
+    <p>{{t.description}}</p>
+    <p>{{t.total_score}}</p>
+</div>
+
+{% endfor %}
+{% endif %}
+{% endblock %}
