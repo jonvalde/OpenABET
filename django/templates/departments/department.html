@@ -15,6 +15,32 @@
     <h3>Campus Not Found</h3>
     {% endif %}
 
+    {% if ps %}
+    <h3>List of Professors</h3>
+
+    {% for p in ps %}
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                {% if p.image and p.image.url %}
+                <a href={% url 'professor' p.id%}>
+                    <img class='iimg-fluid img-thumbnail' src="{{p.image.url}}" alt="{{p.name}}">
+                </a>
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{p.name}}</h5>
+                    <p class="card-text">{{p.email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h3>No professor in this department</h3>
+    {% endif %}
+
 </div>
 
 {% endblock %}

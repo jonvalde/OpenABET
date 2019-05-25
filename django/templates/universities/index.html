@@ -3,18 +3,28 @@
 {% block content %}
 
 <div class='container'>
-        <h1 class='text-center'>List of All Universities</h1>
-        {% if all %}
-            {% for u in all %}
-            <div class="container">
-                <h3>{{u.name}}</h3>
+    <h1 class='text-center'>List of All Universities</h1>
+    {% if all %}
+    {% for u in all %}
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                {% if u.image and u.image.url %}
                 <a href={% url 'university' u.id %}>
-                    <img class='img-thumbnail' src="{{u.image.url}}" alt="{{u.name}}">
+                    <img class='iimg-fluid img-thumbnail' src="{{u.image.url}}" alt="{{u.name}}">
                 </a>
+                {% endif %}
             </div>
-            {% endfor %}
-        {% else %}
-            <p>There Are No Universities In The Database</p>
-        {% endif %}
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{u.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>There Are No Universities In The Database</p>
+    {% endif %}
 </div>
 {% endblock %}
