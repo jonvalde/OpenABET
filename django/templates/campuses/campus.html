@@ -1,26 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class='container vertical-center'>
-    <div class='jumbotron index-container'>
-        <h1>{{c.name}}</h1>
-        <img class='img-fluid' src="{{c.image.url}}" alt="{{c.name}}">
-        <h4>Description</h4>
-        <p>{{c.description}}</p>
-        {% if ds %}
+
+<div class='jumbotron container justify-content-center'>
+    <h1>{{c.name}}</h1>
+    <img class='img-fluid' src="{{c.image.url}}" alt="{{c.name}}">
+    <br><br>
+    <h4>Address</h4>
+    <p>{{c.address}}</p>
+    <h4>Description</h4>
+    <p>{{c.description}}</p>
+    <h4>Departments</h4>
+    {% if ds %}
+    <div class="d-flex flex-wrap justify-content-between">
         {% for d in ds %}
-        
-        <div class="container">
-            <h3>{{d.name}}</h3>
-            <a href={% url 'department' d.id %}>
-                <img class='img-thumbnail' src="{{d.image.url}}" alt="{{d.name}}">
-            </a>
-        </div>
+        <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        {% if d.image and d.image.url %}
+                        <a href={% url 'department' d.id%}>
+                            <img class='img-thumbnail' src="{{d.image.url}}" alt="{{d.name}}">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{d.name}}</h5>
+                            <p class="card-text">{{d.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-        
-        {% else %}
-        <p>NOPE</p>
-        {% endif %}
     </div>
+
+
+
+
+
+
+    {% else %}
+    <p>No Departments found</p>
+    {% endif %}
 </div>
+
 {% endblock %}

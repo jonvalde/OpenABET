@@ -24,7 +24,7 @@
             <div class="col-md-4">
                 {% if p.image and p.image.url %}
                 <a href={% url 'professor' p.id%}>
-                    <img class='iimg-fluid img-thumbnail' src="{{p.image.url}}" alt="{{p.name}}">
+                    <img class='img-thumbnail' src="{{p.image.url}}" alt="{{p.name}}">
                 </a>
                 {% endif %}
             </div>
