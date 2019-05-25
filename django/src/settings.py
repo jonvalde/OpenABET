@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'universities.apps.UniversitiesConfig',
     'campuses.apps.CampusesConfig',
     'pages.apps.PagesConfig',
+    'departments.apps.DepartmentsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

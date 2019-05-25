@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class='container'>
-    {% if c %}
-    <h1>{{c.name}}</h1>
-    <img class='img-fluid' src="{{c.image.url}}" alt="{{c.name}}">
-    <h3>Address</h3>
-    <p>{{c.address}}</p>
-    <h3>Description</h3>
-    <p>{{c.description}}</p>
-    <a href={% url 'university' c.university_id %}>Back to University
-    </a>
-    {% else %}
-    <h3>Campus Not Found</h3>
-    {% endif %}
-    
+<div class='container vertical-center'>
+    <div class='jumbotron index-container'>
+        <h1>{{c.name}}</h1>
+        <img class='img-fluid' src="{{c.image.url}}" alt="{{c.name}}">
+        <h4>Description</h4>
+        <p>{{c.description}}</p>
+        {% if ds %}
+        {% for d in ds %}
+        
+        <div class="container">
+            <h3>{{d.name}}</h3>
+            <a href={% url 'department' d.id %}>
+                <img class='img-thumbnail' src="{{d.image.url}}" alt="{{d.name}}">
+            </a>
+        </div>
+      
+        <p>{{d.id}}</p>
+        {% endfor %}
+        
+        {% else %}
+        <p>NOPE</p>
+        {% endif %}
+    </div>
 </div>
-
 {% endblock %}
